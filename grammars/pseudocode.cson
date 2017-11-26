@@ -8,146 +8,114 @@ foldingStopMarker: "\\*\\*/|^\\s*\\}"
 name: "pseudocode"
 patterns: [
   {
-    'match': '(END)?FOR'
-    'name': 'keyword.control.pseudocode'
+      match: "REQUIRE|ENSURE|EXTENDS|ABSTRACT"
+      name: "entity.name.tag.pseudocode"
   },
   {
-    'match': '(END)?WHILE'
-    'name': 'keyword.control.pseudocode'
+    match: "(NIL|TRUE|FALSE|NOT|OR|AND)(?![a-z|A-Z])"
+    name: "keyword.other.unit.pseudocode"
   },
   {
-    'match': '(END)?IF|THEN|ELSE'
-    'name': 'keyword.control.pseudocode'
+    match: " (IN|TO) "
+    name: "keyword.control.pseudocode"
   },
   {
-    'match': '(END)?FUNCTION'
-    'name': 'entity.name.function.pseudocode'
+    match: "(DO)"
+    name: "keyword.control.pseudocode"
   },
   {
-    'match': 'RETURN'
-    'name': 'entity.name.section.pseudocode'
+    match: "(REPEAT)"
+    name: "keyword.control.pseudocode"
   },
   {
-    'match': '(END)?CLASS'
-    'name': 'entity.name.type.pseudocode'
+    match: "(UNTIL)"
+    name: "keyword.control.pseudocode"
   },
   {
-      'match': 'EXTENDS|ABSTRACT'
-      'name': 'entity.name.tag.pseudocode'
+    match: "(END )?(FOR)( ALL)?"
+    name: "keyword.control.pseudocode"
   },
   {
-    'match': 'this'
-    'name': 'support.variable.pseudocode'
+    match: "(END )?(WHILE)"
+    name: "keyword.control.pseudocode"
   },
   {
-    'match': 'print'
-    'name': 'support.function.pseudocode'
+    match: "RETURN"
+    name: "entity.name.section.pseudocode"
   },
   {
-    'match': 'string|int|float|map|list|set'
-    'name': 'storage.type.language.pseudocode'
+    match: "(END )?(FUNCTION|PROCEDURE)"
+    name: "entity.name.function.pseudocode"
+  },
+  {
+    match: "(END )?CLASS"
+    name: "entity.name.class.pseudocode"
+  },
+  {
+    match: "INPUT|OUTPUT"
+    name: "support.function.pseudocode"
+  },
+  {
+    match: "String|Int|Float|Map|List|Set"
+    name: "entity.other.attribute-name.pseudocode"
    },
   {
-    match: "(([\\<\\=]|[\\>\\=]|[\\<\\>]|[\\=\\=]){2}|([\\>]|[\\≠]|[\\<]){1})"
-    name: "keyword.operator.comparison.pseudocode"
-  }
+    match: "<=|>=|<>|!=|==|>|≠|<"
+    name: "punctuation.definition.bold.pseudocode"
+  },
   {
-    match: "(?<![\\/|\\*])([\\+]|[\\-]|[\\*]|[\\/])(?![\\/|\\*])"
-    name: "keyword.operator.arithmetic.pseudocode"
-  }
+    match: "=|←"
+    name: "punctuation.section.embedded.pseudocode"
+  },
   {
-    match: "(nil|true|false|not|NOT|or|OR|and|AND)(?![a-z|A-Z])"
-    name: "keyword.operator.logical.pseudocode"
-  }
-  {
-    match: "\\="
-    name: "keyword.operator.assignment.pseudocode"
-  }
-  {
-    match: "\\b(If|While|Case|Then|Else|Unless|Each|For|End|EndIf|EndWhile|EndFor|if|while|else|then|unless|each|for|endif|endwhile|endfor|end|case|to|step|from)\\b"
+    match: "ELSE"
     name: "keyword.control.pseudocode"
-  }
+  },
+  {
+    match: "THEN"
+    name: "keyword.control.pseudocode"
+  },
+  {
+    match: "(END )?IF"
+    name: "keyword.control.pseudocode"
+  },
   {
     match: "([\\(](?![\\)])){1}"
     name: "meta.begin.brace.round.pseudocode"
-  }
+  },
   {
     match: "((?<![\\(])[\\)])"
     name: "meta.end.brace.round.pseudocode"
-  }
+  },
   {
     match: "([\\(](?=[\\)])){1}"
     name: "punctuation.definition.parameters.begin.bracket.round.pseudocode"
-  }
+  },
   {
     match: "((?<=[\\(])[\\)])"
     name: "punctuation.definition.parameters.end.bracket.round.pseudocode"
-  }
+  },
   {
     match: "([,]{1})"
     name: "punctuation.separator.list.pseudocode"
-  }
+  },
   {
     match: "([\\[])"
     name: "meta.begin.brace.square.pseudocode"
-  }
+  },
   {
     match: "([\\]])"
     name: "meta.end.brace.square.pseudocode"
-  }
-  {
-    match: "\\b(Let|PatternCount|Left|Right|input|output|open|close)\\b"
-    name: "support.function.pseudocode"
-  }
-  {
-    match: "(^(([a-zA-Z0-9])+(?=[\\(\\)]{2})))"
-    name: "entity.name.function.pseudocode"
-  }
-  {
-    match: "((([a-zA-Z0-9])+(?=[\\(\\)]{2}[\\r|\\n|\\r\\n])))"
-    name: "meta.function-call.pseudocode"
-  }
-  {
-    match: "((([A-Z0-9]*[a-z][a-z0-9]*[A-Z]|[a-z0-9]*[A-Z][A-Z0-9]*[a-z])[A-Za-z0-9]*))(?=\\[(.*?)\\])"
-    name: "meta.structure.list.pseudocode"
-  }
-  {
-    match: "(?<=\\[)(.*?)(?=\\])"
-    name: "meta.structure.list.item.pseudocode"
-  }
-  {
-    match: "\\b(start|stop)\\b"
-    name: "markup.bold.pseudocode"
-  }
-  {
-    match: "\\b(return)\\b"
-    name: "entity.name.section.pseudocode"
-  }
-  {
-    match: "\\b(Declarations|count|EOF|eof)\\b(?![?!])"
-    name: "constant.language.pseudocode"
-  }
-  {
-    match: "(?=[:space:]*)\\b(string|num|InputFile|OutputFile)\\b"
-    name: "storage.type.language.pseudocode"
-  }
-  {
-    match: "(([A-Z0-9]*[a-z][a-z0-9]*[A-Z]|[a-z0-9]*[A-Z][A-Z0-9]*[a-z])[A-Za-z0-9]*)(?![\\(|\\[])"
-    name: "variable.parameter.pseudocode"
-  }
-  {
-    match: "((?<![a-z])([A-Z]{4,})(?![a-z]))"
-    name: "variable.other.constant.pseudocode"
-  }
+  },
   {
     match: "([\\/\\/]{2}.*)"
     name: "comment.line.pseudocode"
-  }
+  },
   {
     begin: "\\/\\*.*"
     end: ".*\\*\\/"
     name: "comment.block.pseudocode"
-  }
+  },
   {
     begin: "\""
     end: "\""
