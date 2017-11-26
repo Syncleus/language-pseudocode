@@ -52,6 +52,10 @@ patterns: [
     name: "entity.name.class.pseudocode"
   },
   {
+    match: "THIS"
+    name: "entity.other.attribute-name.pseudocode"
+  },
+  {
     match: "INPUT|OUTPUT"
     name: "support.function.pseudocode"
   },
