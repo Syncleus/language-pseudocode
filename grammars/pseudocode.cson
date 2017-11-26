@@ -112,6 +112,10 @@ patterns: [
     name: "comment.line.pseudocode"
   },
   {
+    match: "\\/\\*(.*)\\*\\/"
+    name: "comment.block.pseudocode"
+  },
+  {
     begin: "\\/\\*.*"
     end: ".*\\*\\/"
     name: "comment.block.pseudocode"
